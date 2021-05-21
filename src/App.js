@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Shopping from "./app/feature/components/Shopping";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+//CONTEXT
+import ProductState from "./app/core/redux/product/productState";
+import CartState from "./app/core/redux/cart/cartState";
+import Alertstate from "./app/core/redux/alert/alertState";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Alertstate>
+      <CartState>
+        <ProductState>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Shopping} />
+            </Switch>
+          </Router>
+        </ProductState>
+      </CartState>
+    </Alertstate>
   );
 }
 
