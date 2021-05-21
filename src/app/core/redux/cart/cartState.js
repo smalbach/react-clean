@@ -84,7 +84,7 @@ const CartState = (props) => {
         note: item.note,
       }));
       const response = await Axios.post(
-        "http://127.0.0.1:8000/api/order/create",
+        "https://blooming-citadel-98937.herokuapp.com/api/order/create",
         { items: newData }
       );
 
