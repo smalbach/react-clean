@@ -18,6 +18,4 @@ test("<App/> the app works the first time ", () => {
 
 test("<App/> Verify cart", () => {
   render(<App />);
-  const buttons_cart = screen.getByRole("i");
-  console.log(buttons_cart);
 });
