@@ -77,12 +77,12 @@ export const saveOrder = () => async (dispatch, getState) => {
       quantity: item.quantity,
       note: item.note,
     }));
-
+    console.log("Error 1");
     const response = await Axios.post(
       "https://blooming-citadel-98937.herokuapp.com/api/order/create",
       { items: newData }
     );
-
+    console.log("Error 2");
     if (response.status) {
       dispatch({
         type: CART_ORDER_SAVED,

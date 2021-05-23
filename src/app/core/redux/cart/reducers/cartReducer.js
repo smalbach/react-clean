@@ -59,6 +59,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         message: action.payload,
+        checkout: false,
       };
 
     default:

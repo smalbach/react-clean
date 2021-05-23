@@ -4,13 +4,12 @@ import CartDetail from "./CartDetail";
 import { Table } from "react-bootstrap";
 import * as cartActions from "../../../core/redux/cart/actions/cartActions";
 
-const { modifyQuantity, modifyNote, removeCart } = cartActions;
+const { modifyQuantity, modifyNote } = cartActions;
 
 class Cart extends Component {
   renderCart = () => {
     console.log(this.props.carts.length);
     if (this.props.carts.length === 0) {
-      console.log("No item");
       return (
         <tr>
           <td colSpan="8">No items</td>
@@ -58,7 +57,6 @@ const mapStateToProps = ({ cartReducer }) => cartReducer;
 const mapDispatchToProps = {
   modifyQuantity,
   modifyNote,
-  removeCart,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
