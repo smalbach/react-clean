@@ -1,34 +1,37 @@
-import React, { useContext } from "react";
-import CartContext from "../../../core/redux/cart/cartContext";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
 import NumberFormat from "react-number-format";
 
-const Total = () => {
-  const cartContext = useContext(CartContext);
-  const { carts } = cartContext;
-  let total = 0;
+class Total extends Component {
+  calcualteTotal = () => {
+    let total = 0;
+    let quantity = 0;
 
-  var date = new Date();
-  var dayOfWeek = date.getDay();
+    var date = new Date();
+    var dayOfWeek = date.getDay();
 
-  carts.map((cart) => {
-    let promption = 0;
+    this.props.carts.map((cart) => {
+      let promption = 0;
+      quantity += cart.quantity;
+      if (cart.promotion_day === dayOfWeek) {
+        promption = 0.3;
+      }
 
-    if (cart.promotion_day === dayOfWeek) {
-      promption = 0.3;
-    }
+      const discount = cart.price * cart.quantity * promption;
+      total += cart.price * cart.quantity - discount;
+    });
+    return { total, quantity };
+  };
 
-    const discount = cart.price * cart.quantity * promption;
-    total += cart.price * cart.quantity - discount;
-  });
-
-  return (
-    <>
+  renderTotal = () => {
+    const { total, quantity } = this.calcualteTotal();
+    return (
       <Table>
         <tbody>
           <tr>
             <td># items</td>
-            <td>{carts.length}</td>
+            <td>{quantity}</td>
             <td>Total</td>
             <td>
               <NumberFormat
@@ -41,8 +44,14 @@ const Total = () => {
           </tr>
         </tbody>
       </Table>
-    </>
-  );
-};
+    );
+  };
 
-export default Total;
+  render() {
+    return <>{this.renderTotal()}</>;
+  }
+}
+
+const mapStateToProps = ({ cartReducer }) => cartReducer;
+
+export default connect(mapStateToProps)(Total);

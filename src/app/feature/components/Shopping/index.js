@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import CartContext from "../../../core/redux/cart/cartContext";
+
 import ListProducts from "../Products/ListProducts";
 import Cart from "../Cart/Cart";
 import Total from "../Total";
@@ -10,11 +10,13 @@ import "./style.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Shopping = (props) => {
-  const cartContext = useContext(CartContext);
-  const { chekout, order_saved, newOrderfn } = cartContext;
+  /*   const cartContext = useContext(CartContext);
+  const { chekout, order_saved, newOrderfn } = cartContext; */
 
+  const chekout = false;
+  const order_saved = null;
   const newOrder = () => {
-    newOrderfn();
+    /* newOrderfn(); */
   };
 
   return (
@@ -52,6 +54,7 @@ const Shopping = (props) => {
               ) : (
                 <>
                   <Cart />
+
                   <Total />
                   <Checkout />
                 </>

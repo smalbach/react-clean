@@ -1,23 +1,24 @@
-import React, { useContext } from "react";
-import CartContext from "../../../core/redux/cart/cartContext";
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Col } from "react-bootstrap";
 import { PlusLg } from "react-bootstrap-icons";
+import * as cartActions from "../../../core/redux/cart/actions/cartActions";
 
-const Product = ({ product }) => {
-  const cartContext = useContext(CartContext);
-  const { addToCartfn } = cartContext;
+const { addToCart } = cartActions;
 
-  const addProduct = () => {
-    addToCartfn(product);
+class Product extends Component {
+  //const { addToCartfn } = cartContext;
+
+  addProduct = (product) => {
+    this.props.addToCart(product);
   };
 
-  return (
-    <>
-      <Col md="auto">
+  renderProduct = () => {
+    const products = this.props.productReducer.products.map((product, key) => (
+      <Col md="auto" key={product.id}>
         <div className="box">
           <img src={product.image} height="170" />
-          <i onClick={addProduct}>
+          <i onClick={() => this.addProduct(product)}>
             {" "}
             <PlusLg />{" "}
           </i>
@@ -25,8 +26,20 @@ const Product = ({ product }) => {
           <p>$ {product.price} </p>
         </div>
       </Col>
-    </>
-  );
+    ));
+    return products;
+  };
+  render() {
+    return <>{this.renderProduct()}</>;
+  }
+}
+
+const mapStateToProps = ({ productReducer, cartReducer }) => {
+  return { productReducer, cartReducer };
 };
 
-export default Product;
+const mapDispatchToProps = {
+  addToCart,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

@@ -1,119 +1,139 @@
-import React, { useContext } from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Button, Form } from "react-bootstrap";
-import CartContext from "../../../core/redux/cart/cartContext";
-import AlertContext from "../../../core/redux/alert/alertContext";
 import NumberFormat from "react-number-format";
+import * as cartActions from "../../../core/redux/cart/actions/cartActions";
+import Swal from "sweetalert2";
 
-const CartDetail = ({ cart }) => {
-  const cartContext = useContext(CartContext);
-  const { modifiQuantityfn, removeCartfn, modifiNotefn } = cartContext;
+class CartDetail extends Component {
+  addQuantity = (product) => {
+    const { modifyQuantity } = this.props;
 
-  const alertContext = useContext(AlertContext);
-  const { alert, message, showAlert } = alertContext;
-
-  const { name, image, price, quantity, note, promotion_day } = cart;
-  var date = new Date();
-  var dayOfWeek = date.getDay();
-
-  let promption = 0;
-
-  if (promotion_day === dayOfWeek) {
-    promption = 0.3;
-  }
-
-  const discount = price * quantity * promption;
-  const total = price * quantity - discount;
-
-  const addQuantity = () => {
-    if (quantity < 3) {
-      modifiQuantityfn(cart, 1);
+    if (product.quantity < 3) {
+      modifyQuantity(product, 1);
     } else {
-      showAlert("Only allow 3 items", "alert-warning");
+      Swal.fire({
+        title: "Opps!",
+        text: "Only allow 3 items",
+        icon: "warning",
+        confirmButtonText: "Back",
+      });
     }
   };
 
-  const delQuantity = () => {
-    if (quantity > 1) {
-      modifiQuantityfn(cart, -1);
+  delQuantity = (product) => {
+    const { modifyQuantity } = this.props;
+    if (product.quantity > 1) {
+      modifyQuantity(product, -1);
     } else {
-      showAlert("Minimun 1 item", "alert-warning");
+      Swal.fire({
+        title: "Opps!",
+        text: "Minimun 1 item",
+        icon: "warning",
+        confirmButtonText: "Back",
+      });
     }
   };
 
-  const removeCart = () => {
-    if (quantity <= 3 || quantity > 0) {
-      removeCartfn(cart);
+  removeCart = (product) => {
+    const { removeItemFromCart } = this.props;
+    if (product.quantity <= 3 || product.quantity > 0) {
+      removeItemFromCart(product);
     } else {
       alert("no mas hay quie cambiar esto");
     }
   };
 
-  const updateNote = (e) => {
-    modifiNotefn(cart, e.target.value);
+  updateNote = (e, product) => {
+    const { modifyNote } = this.props;
+    modifyNote(product, e.target.value);
   };
 
-  return (
-    <>
-      {" "}
-      <tr>
-        <td>
-          <img src={image} width="30" />
-        </td>
-        <td>{name}</td>
-        <td>
-          <Form.Control
-            size="sm"
-            type="text"
-            placeholder="Note"
-            onChange={updateNote}
-          />{" "}
-        </td>
-        <td>
-          <NumberFormat
-            value={price}
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"$"}
-          />
-        </td>
-        <td>
-          {" "}
-          <NumberFormat
-            value={discount}
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"$"}
-          />
-        </td>
+  calclateTotal = (product) => {
+    const { price, quantity, promotion_day } = product;
 
-        <td>
-          {" "}
-          <Button variant="" size="sm" onClick={delQuantity}>
-            -
-          </Button>{" "}
-          {quantity}{" "}
-          <Button variant="" size="sm" onClick={addQuantity}>
-            +
-          </Button>{" "}
-        </td>
+    var date = new Date();
+    var dayOfWeek = date.getDay();
+    let promption = 0;
 
-        <td>
-          {" "}
-          <Button variant="" size="sm" onClick={removeCart}>
-            Remove
-          </Button>{" "}
-        </td>
-        <td>
-          <NumberFormat
-            value={total}
-            displayType={"text"}
-            thousandSeparator={true}
-            prefix={"$"}
-          />
-        </td>
-      </tr>
-    </>
-  );
-};
+    if (promotion_day === dayOfWeek) {
+      promption = 0.3;
+    }
 
-export default CartDetail;
+    const discount = price * quantity * promption;
+    const total = price * quantity - discount;
+    return { discount, total };
+  };
+
+  rednderCart = () => {
+    const cart = this.props.carts.map((cart, key) => {
+      const { id, image, name, price, quantity } = cart;
+      const { discount, total } = this.calclateTotal(cart);
+      return (
+        <tr key={id}>
+          <td>
+            <img src={image} width="30" />
+          </td>
+          <td>{name}</td>
+          <td>
+            <Form.Control
+              size="sm"
+              type="text"
+              placeholder="Note"
+              onChange={(e) => this.updateNote(e, cart)}
+            />
+          </td>
+          <td>
+            <NumberFormat
+              value={price}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"$"}
+            />
+          </td>
+          <td>
+            <NumberFormat
+              value={discount}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"$"}
+            />
+          </td>
+
+          <td>
+            <Button variant="" size="sm" onClick={() => this.delQuantity(cart)}>
+              -
+            </Button>
+            {quantity}
+            <Button variant="" size="sm" onClick={() => this.addQuantity(cart)}>
+              +
+            </Button>
+          </td>
+
+          <td>
+            <Button variant="" size="sm" onClick={() => this.removeCart(cart)}>
+              Remove
+            </Button>
+          </td>
+          <td>
+            <NumberFormat
+              value={total}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"$"}
+            />
+          </td>
+        </tr>
+      );
+    });
+    return cart;
+  };
+
+  render() {
+    return <>{this.rednderCart()}</>;
+  }
+}
+
+const mapStateToProps = ({ cartReducer }) => cartReducer;
+
+export default connect(mapStateToProps, cartActions)(CartDetail);

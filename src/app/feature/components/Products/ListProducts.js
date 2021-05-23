@@ -1,27 +1,41 @@
-import React, { useContext, useEffect } from "react";
-import ProductContext from "../../../core/redux/product/productContext";
-import Product from "./Product";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Container, Row } from "react-bootstrap";
+import * as productsActions from "../../../core/redux/product/actions/productActions";
+import Product from "./Product";
+import Spinner from "../../../shared/components/Spiner";
+import Error404 from "../../../shared/components/404";
 
-const ListProducts = () => {
-  const productContext = useContext(ProductContext);
-  const { getProductsfn, products } = productContext;
+class ListProducts extends Component {
+  componentDidMount() {
+    this.props.getProducts();
+  }
 
-  useEffect(() => {
-    getProductsfn();
-  }, []);
+  setProducts = () => {
+    if (this.props.loading) {
+      return <Spinner />;
+    }
 
-  return (
-    <>
+    if (this.props.error) {
+      return <Error404 error={this.props.error} />;
+    }
+
+    return <Product />;
+  };
+
+  render() {
+    return (
       <Container>
-        <Row className="justify-content-md-center">
-          {products.map((product) => (
-            <Product key={product.id} product={product} />
-          ))}
-        </Row>
+        <Container>
+          <Row className="justify-content-md-center">{this.setProducts()}</Row>
+        </Container>
       </Container>
-    </>
-  );
+    );
+  }
+}
+
+const mapStateToProps = (reducers) => {
+  return reducers.productReducer;
 };
 
-export default ListProducts;
+export default connect(mapStateToProps, productsActions)(ListProducts);

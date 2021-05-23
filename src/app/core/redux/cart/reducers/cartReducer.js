@@ -5,9 +5,18 @@ import {
   CART_ADD_QUANTITY,
   CART_ORDER_SAVED,
   CART_CHECKOUT,
-} from "../types";
+  CART_CHECKOUT_ERROR,
+} from "../../types";
 
-export default (state, action) => {
+const INITIAL_STATE = {
+  carts: [],
+  errorform: false,
+  message: "",
+  checkout: false,
+  order_saved: false,
+};
+
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CART_REMOVE:
       return {
@@ -27,22 +36,29 @@ export default (state, action) => {
     case CART_CHECKOUT:
       return {
         ...state,
-        chekout: true,
+        checkout: true,
       };
     case CART_ORDER_SAVED:
       return {
         ...state,
         order_saved: true,
+        message: "",
+        checkout: false,
       };
 
     case CART_NEW:
       return {
         ...state,
         order_saved: false,
-        chekout: false,
+        checkout: false,
         carts: [],
         errorform: false,
-        menssage: null,
+        message: "",
+      };
+    case CART_CHECKOUT_ERROR:
+      return {
+        ...state,
+        message: action.payload,
       };
 
     default:

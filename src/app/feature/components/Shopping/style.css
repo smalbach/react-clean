@@ -1,13 +1,12 @@
 html,
 body {
-  background-color: #eee;
+  background-color: #eeeeee;
   font-family: calibri, sans-serif;
 }
-
- {
-  width: 760px;
-  margin: 20px auto;
+#root {
+  background-color: #eeeeee;
 }
+
 #product .box {
   width: 230px;
   background-color: #fff;
