@@ -13,16 +13,12 @@ export const addToCart = (product) => (dispatch, getState) => {
   try {
     const { carts } = getState().cartReducer;
 
-    const exist = carts.filter((cart) => product.id === cart.id);
-
-    if (exist.length === 0) {
-      product.quantity = 1;
-      product.note = "";
-      dispatch({
-        type: CART_ADD,
-        payload: product,
-      });
-    }
+    product.quantity = 1;
+    product.note = "";
+    dispatch({
+      type: CART_ADD,
+      payload: product,
+    });
   } catch (error) {}
 };
 

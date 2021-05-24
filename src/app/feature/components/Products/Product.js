@@ -7,8 +7,6 @@ import * as cartActions from "../../../core/redux/cart/actions/cartActions";
 const { addToCart } = cartActions;
 
 class Product extends Component {
-  //const { addToCartfn } = cartContext;
-
   addProduct = (product) => {
     this.props.addToCart(product);
   };
@@ -18,7 +16,7 @@ class Product extends Component {
       <Col md="auto" key={product.id}>
         <div className="box">
           <img src={product.image} height="170" />
-          <i onClick={() => this.addProduct(product)}>
+          <i className="button-add" onClick={() => this.addProduct(product)}>
             {" "}
             <PlusLg />{" "}
           </i>

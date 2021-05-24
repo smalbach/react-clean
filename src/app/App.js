@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Shopping from "./app/feature/components/Shopping";
+import Shopping from "./feature/components/Shopping";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
