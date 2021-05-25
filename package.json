@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test -env=jsdom --verbose",
     "eject": "react-scripts eject",
-    "test:coverage": "npm test -- --coverage --watchAll=false"
+    "test:c": "npm test -- --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": [

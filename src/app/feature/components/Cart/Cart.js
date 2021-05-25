@@ -23,7 +23,7 @@ class Cart extends Component {
     return (
       <>
         <div data-testid="app-cart">
-          <div className="head">
+          <div className="head cart-head">
             <h3>Shopping Cart</h3>
 
             <Table hover responsive striped>

@@ -1,5 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
+
+// eslint-disable-next-line jest/no-mocks-import
 import ProviderMock from "../../../../../__mocks__/ProviderMock";
 
 import Cart from "../../../../../feature/components/Cart/Cart";

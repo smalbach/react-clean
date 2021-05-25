@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621963494985" clover="3.2.0">
-  <project timestamp="1621963494986" name="All files">
-    <metrics statements="214" coveredstatements="59" conditionals="55" coveredconditionals="5" methods="70" coveredmethods="16" elements="339" coveredelements="80" complexity="0" loc="214" ncloc="214" packages="21" files="24" classes="24"/>
+<coverage generated="1621970052788" clover="3.2.0">
+  <project timestamp="1621970052788" name="All files">
+    <metrics statements="209" coveredstatements="60" conditionals="55" coveredconditionals="5" methods="66" coveredmethods="17" elements="330" coveredelements="82" complexity="0" loc="209" ncloc="209" packages="20" files="23" classes="23"/>
     <package name="src">
       <metrics statements="10" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="index.js" path="D:\javascript\react\orders\src\index.js">
@@ -301,11 +301,11 @@
       </file>
     </package>
     <package name="src.app.shared.Layout">
-      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="index.js" path="D:\javascript\react\orders\src\app\shared\Layout\index.js">
-        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="6" count="3" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.app.shared.Layout.Footer">
@@ -313,7 +313,7 @@
       <file name="index.js" path="D:\javascript\react\orders\src\app\shared\Layout\Footer\index.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="4" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.app.shared.Layout.Header">
@@ -321,7 +321,7 @@
       <file name="index.js" path="D:\javascript\react\orders\src\app\shared\Layout\Header\index.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="4" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.app.shared.components.404">
@@ -338,17 +338,6 @@
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="5" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.app.shared.utils">
-      <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="getData.js" path="D:\javascript\react\orders\src\app\shared\utils\getData.js">
-        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
       </file>
     </package>
   </project>
