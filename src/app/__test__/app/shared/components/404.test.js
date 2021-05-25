@@ -8,10 +8,8 @@ describe("<Error404>", () => {
   const error = mount(<Error404 />);
   test("Render of footer", () => {
     expect(error.length).toEqual(1);
-  });
-
-  test("Error snapshot", () => {
-    const error_snap = create(<Error404 />);
-    expect(error_snap).toMatchSnapshot();
+    expect(error.find(".alert").length).toEqual(1);
+    expect(error.find(".alert-heading").length).toEqual(2);
+    expect(error.find("p").length).toEqual(1);
   });
 });

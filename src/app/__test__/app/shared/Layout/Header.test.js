@@ -25,10 +25,3 @@ describe("<Header>", () => {
     expect(header_mount.find(".title").text()).toEqual("Order App");
   });
 });
-
-describe("Header snapshop", () => {
-  test("UI Component Header", () => {
-    const header = create(<Header />);
-    expect(header.toJSON).toMatchSnapshot();
-  });
-});
