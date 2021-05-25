@@ -17,6 +17,7 @@ const INITIAL_STATE = {
   order_saved: false,
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CART_REMOVE:

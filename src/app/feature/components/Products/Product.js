@@ -15,7 +15,7 @@ class Product extends Component {
     const products = this.props.productReducer.products.map((product, key) => (
       <Col md="auto" key={product.id}>
         <div className="box">
-          <img src={product.image} height="170" />
+          <img src={product.image} height="170" alt="" />
           <i className="button-add" onClick={() => this.addProduct(product)}>
             {" "}
             <PlusLg />{" "}

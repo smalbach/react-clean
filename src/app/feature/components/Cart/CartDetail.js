@@ -72,7 +72,7 @@ class CartDetail extends Component {
       return (
         <tr key={id}>
           <td>
-            <img src={image} width="30" />
+            <img src={image} width="30" alt="Product" />
           </td>
           <td>{name}</td>
           <td>
