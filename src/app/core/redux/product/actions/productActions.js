@@ -7,7 +7,7 @@ export const getProducts = () => async (dispatch) => {
   });
   try {
     const response = await Axios.get(
-      "https://blooming-citadel-98937.herokuapp.com/api/product/list1"
+      "https://blooming-citadel-98937.herokuapp.com/api/product/list"
     );
     dispatch({
       type: PRODUCT_LIST,
