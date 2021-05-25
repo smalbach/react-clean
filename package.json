@@ -50,14 +50,18 @@
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "autoprefixer": "^10.2.5",
+    "axios-mock-adapter": "^1.19.0",
+    "fetch-mock": "^9.11.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest-fetch-mock": "^3.0.3",
     "postcss": "^8.3.0",
     "react-test-renderer": "^17.0.2",
-    "redux-devtools-extension": "^2.13.9"
+    "redux-devtools-extension": "^2.13.9",
+    "redux-mock-store": "^1.5.4"
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(styl|css)$": "<rootDir>/src/__mocks__/styleMock.js"
+      "^.+\\.(styl|css)$": "<rootDir>/src/app/__mocks__/styleMock.js"
     }
   }
 }

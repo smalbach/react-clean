@@ -14,12 +14,13 @@ describe("Reducers", () => {
   test("Retutn initial State", () => {
     expect(reducer({}, "")).toEqual({});
   });
+
   test("AddToCart", () => {
     const INITIAL_STATE = {
       carts: [],
     };
     const payload = ProductMock;
-    console.log(ProductMock);
+
     const action = {
       type: CART_ADD,
       payload,

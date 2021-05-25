@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import Footer from "../../../shared/Layout/Footer";
+import Footer from "../../../../shared/Layout/Footer";
 import { create } from "react-test-renderer";
 
 describe("<Footer>", () => {
@@ -12,9 +12,6 @@ describe("<Footer>", () => {
   test("Title render ", () => {
     expect(footer.find(".Footer-title").text()).toEqual("React app");
   });
-});
-
-describe("Footer snapshop ", () => {
   test("Test UI Component footer", () => {
     const footer = create(<Footer />);
     expect(footer.toJSON).toMatchSnapshot();

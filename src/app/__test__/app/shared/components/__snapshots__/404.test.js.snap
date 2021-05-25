@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Error404> Error snapshot   1`] = `
+<div
+  className="fade alert alert-danger show"
+  role="alert"
+>
+  <div
+    className="alert-heading h4"
+  >
+    Opps! You got an error!
+  </div>
+  <p />
+</div>
+`;

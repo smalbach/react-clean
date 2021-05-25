@@ -6,6 +6,7 @@ import {
   CART_ORDER_SAVED,
   CART_CHECKOUT,
   CART_CHECKOUT_ERROR,
+  CART_MODIFY_NOTE,
 } from "../../types";
 
 const INITIAL_STATE = {
@@ -28,11 +29,14 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         carts: [...state.carts, action.payload],
       };
+
+    case CART_MODIFY_NOTE:
     case CART_ADD_QUANTITY:
       return {
         ...state,
         carts: action.payload,
       };
+
     case CART_CHECKOUT:
       return {
         ...state,

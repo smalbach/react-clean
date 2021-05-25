@@ -1,9 +1,9 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
 import { create } from "react-test-renderer";
-import ProviderMock from "../../../__mocks__/ProviderMock";
+import ProviderMock from "../../../../__mocks__/ProviderMock";
 
-import Header from "../../../shared/Layout/Header";
+import Header from "../../../../shared/Layout/Header";
 
 describe("<Header>", () => {
   const header = shallow(

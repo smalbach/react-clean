@@ -7,12 +7,11 @@ import {
   CART_ORDER_SAVED,
   CART_CHECKOUT,
   CART_CHECKOUT_ERROR,
+  CART_MODIFY_NOTE,
 } from "../../types";
 
 export const addToCart = (product) => (dispatch, getState) => {
   try {
-    const { carts } = getState().cartReducer;
-
     product.quantity = 1;
     product.note = "";
     dispatch({
@@ -26,6 +25,7 @@ export const modifyQuantity = (product, operation) => (dispatch, getState) => {
   try {
     const { carts } = getState().cartReducer;
     let newCart = [...carts];
+
     newCart.find(
       (p) =>
         p.id === product.id &&
@@ -40,12 +40,12 @@ export const modifyQuantity = (product, operation) => (dispatch, getState) => {
 };
 
 export const modifyNote = (product, note) => (dispatch, getState) => {
-  const { carts } = getState().cartReducer;
   try {
+    const { carts } = getState().cartReducer;
     let newCart = [...carts];
     newCart.find((p) => p.id === product.id && ((p.note = note), true));
     dispatch({
-      type: CART_ADD_QUANTITY,
+      type: CART_MODIFY_NOTE,
       payload: newCart,
     });
   } catch (error) {}
