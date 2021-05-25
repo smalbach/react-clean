@@ -35,7 +35,7 @@ export default (state = INITIAL_STATE, action) => {
     case CART_ADD_QUANTITY:
       return {
         ...state,
-        carts: [action.payload],
+        carts: action.payload,
       };
 
     case CART_CHECKOUT:

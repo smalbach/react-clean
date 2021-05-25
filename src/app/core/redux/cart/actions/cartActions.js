@@ -29,9 +29,9 @@ export const addToCart = (product) => (dispatch, getState) => {
 export const modifyQuantity = (product, operation) => (dispatch, getState) => {
   try {
     const { carts } = getState().cartReducer;
-    const auxCart = [...carts];
+    let newCart = [...carts];
 
-    const newCart = auxCart.find(
+    newCart.find(
       (p) =>
         p.id === product.id &&
         ((p.quantity = p.quantity + parseInt(operation)), true)
