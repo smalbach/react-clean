@@ -72,6 +72,10 @@
       "!**/node_modules/**",
       "!**/coverage/**",
       "!**/serviceWorker.js",
+      "!**/setupTests.js",
+      "!**/reportWebVitals.js",
+      "!**/store.js",
+      "!**/utilsgetData.js",
       "!**/index.js"
     ]
   }
