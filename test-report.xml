@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="D:\javascript\react\orders\src\app\__test__\app\feature\components\Cart\CartDetail.test.js">
+    <testCase name="&lt;CartDetail/&gt; Render  CartDetail" duration="4"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\feature\components\Checkout\checkput.test.js">
+    <testCase name="&lt;Checkout/&gt; Render  Checkout" duration="3"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\shared\components\404.test.js">
+    <testCase name="&lt;Error404&gt; Render of footer" duration="1"/>
+    <testCase name="&lt;Error404&gt; Error snapshot" duration="20"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\App.test.js">
+    <testCase name="&lt;App/&gt; Render  app" duration="2"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\feature\components\Shoping\Shoping.test.js">
+    <testCase name="&lt;Shopping/&gt; Render  shoping" duration="4"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\feature\components\Products\Products.test.js">
+    <testCase name="&lt;Product/&gt; Render  Product" duration="2"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\feature\components\Products\ListProduct.test.js">
+    <testCase name="&lt;ListProducts/&gt; Render  ListProducts" duration="0"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\feature\components\Cart\Cart.test.js">
+    <testCase name="&lt;Cart/&gt; Render  Product" duration="1"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\shared\Layout\Footer.test.js">
+    <testCase name="&lt;Footer&gt; Render of footer" duration="0"/>
+    <testCase name="&lt;Footer&gt; Title render" duration="7"/>
+    <testCase name="&lt;Footer&gt; UI  footer" duration="20"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\shared\Layout\Header.test.js">
+    <testCase name="&lt;Header&gt; Header render" duration="1"/>
+    <testCase name="&lt;Header&gt; Title render" duration="46"/>
+    <testCase name="Header snapshop UI Component Header" duration="1"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\feature\components\Total\Total.test.js">
+    <testCase name="&lt;Total/&gt; Render  total" duration="1"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\core\redux\product\actions.test.js">
+    <testCase name="Product  actions Product  actions" duration="23"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\shared\Layout\Layout.test.js">
+    <testCase name="&lt;Layout&gt; Layout render" duration="0"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\core\redux\cart\actions.test.js">
+    <testCase name="Cart actions AddToCart" duration="2"/>
+    <testCase name="Cart actions modifyQuantity CART_ADD_QUANTITY +1" duration="1"/>
+    <testCase name="Cart actions modifyQuantity CART_ADD_QUANTITY -1" duration="0"/>
+    <testCase name="Cart actions modifyQuantity CART_REMOVE" duration="1"/>
+    <testCase name="Cart actions should get ALL_ITEMS" duration="0"/>
+    <testCase name="Cart actions modifyQuantity CART_MODIFY_NOTE" duration="1"/>
+    <testCase name="Cart actions should CART_REMOVE" duration="0"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\shared\components\spiner.test.js">
+    <testCase name="&lt;Spiner&gt; Render of Spiner" duration="1"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\app\core\redux\cart\reducers.test.js">
+    <testCase name="Reducers Retutn initial State" duration="1"/>
+    <testCase name="Reducers AddToCart" duration="0"/>
+  </file>
+  <file path="D:\javascript\react\orders\src\app\__test__\utils\getData.test.js">
+    <testCase name="Fetch API Call API an retuen data" duration="4"/>
+  </file>
+</testExecutions>
