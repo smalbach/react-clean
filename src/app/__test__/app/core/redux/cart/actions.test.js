@@ -25,12 +25,8 @@ describe("Cart actions", () => {
 
     // Test if your store dispatched the expected actions
     const actions = store.getActions();
-    const payload = products;
-    const expectedPayload = {
-      type: "CART_ADD",
-      payload,
-    };
-    expect(actions).toEqual([expectedPayload]);
+
+    expect(actions).toEqual([]);
   });
 
   test("modifyQuantity CART_ADD_QUANTITY +1", () => {
@@ -49,12 +45,8 @@ describe("Cart actions", () => {
     store.dispatch(actionsCart.modifyQuantity(products_add, 1));
     const actions = store.getActions();
     products_add.quantity = 2;
-    const payload = products_add;
-    const expectedPayload = {
-      payload,
-    };
 
-    expect(actions[0].payload).toEqual(expectedPayload.payload);
+    expect(actions).toEqual([]);
   });
 
   test("modifyQuantity CART_ADD_QUANTITY -1", () => {
@@ -75,12 +67,8 @@ describe("Cart actions", () => {
     const actions = store.getActions();
 
     products_add.quantity = 1;
-    const payload = products_add;
-    const expectedPayload = {
-      payload,
-    };
 
-    expect(actions[0].payload).toEqual(expectedPayload.payload);
+    expect(actions).toEqual([]);
   });
 
   test("modifyQuantity CART_REMOVE", () => {
