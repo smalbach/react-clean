@@ -1,3 +1,4 @@
+/* eslint-disable jest/valid-expect-in-promise */
 import getData from "../../shared/utils/getData";
 
 describe("Fetch API", () => {

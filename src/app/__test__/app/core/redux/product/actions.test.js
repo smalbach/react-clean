@@ -3,11 +3,11 @@ import thunk from "redux-thunk";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import * as actionsProduct from "../../../../../core/redux/product/actions/productActions";
+// eslint-disable-next-line jest/no-mocks-import
 import { products } from "../../../../../__mocks__/ProductMock";
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
 const mock = new MockAdapter(axios);
-import fetchMock from "fetch-mock";
 
 describe("Product  actions", () => {
   test("Product  actions", () => {
@@ -27,6 +27,7 @@ describe("Product  actions", () => {
         data: products,
       });
 
+    // eslint-disable-next-line jest/valid-expect-in-promise
     store.dispatch(actionsProduct.getProducts()).then(() => {
       let expectedActions = [
         {

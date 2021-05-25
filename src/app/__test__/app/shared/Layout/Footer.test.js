@@ -5,14 +5,14 @@ import { create } from "react-test-renderer";
 
 describe("<Footer>", () => {
   const footer = mount(<Footer />);
-  test("Render of footer ", () => {
+  test("Render of footer", () => {
     expect(footer.length).toEqual(1);
   });
 
-  test("Title render ", () => {
+  test("Title render", () => {
     expect(footer.find(".Footer-title").text()).toEqual("React app");
   });
-  test("Test UI Component footer", () => {
+  test("UI  footer", () => {
     const footer = create(<Footer />);
     expect(footer.toJSON).toMatchSnapshot();
   });

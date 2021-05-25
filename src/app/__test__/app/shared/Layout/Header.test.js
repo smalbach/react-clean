@@ -1,6 +1,7 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
 import { create } from "react-test-renderer";
+// eslint-disable-next-line jest/no-mocks-import
 import ProviderMock from "../../../../__mocks__/ProviderMock";
 
 import Header from "../../../../shared/Layout/Header";
@@ -12,7 +13,7 @@ describe("<Header>", () => {
     </ProviderMock>
   );
 
-  test("Header render ", () => {
+  test("Header render", () => {
     expect(header.length).toEqual(1);
   });
   test("Title render", () => {
@@ -25,8 +26,8 @@ describe("<Header>", () => {
   });
 });
 
-describe("Header snapshop ", () => {
-  test("Test UI Component Header", () => {
+describe("Header snapshop", () => {
+  test("UI Component Header", () => {
     const header = create(<Header />);
     expect(header.toJSON).toMatchSnapshot();
   });

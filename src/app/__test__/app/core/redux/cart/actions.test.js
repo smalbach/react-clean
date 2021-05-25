@@ -3,11 +3,11 @@ import thunk from "redux-thunk";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import * as actionsCart from "../../../../../core/redux/cart/actions/cartActions";
+// eslint-disable-next-line jest/no-mocks-import
 import { products } from "../../../../../__mocks__/ProductMock";
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
 const mock = new MockAdapter(axios);
-import fetchMock from "fetch-mock";
 
 describe("Cart actions", () => {
   test("AddToCart", () => {
@@ -83,7 +83,7 @@ describe("Cart actions", () => {
     expect(actions[0].payload).toEqual(expectedPayload.payload);
   });
 
-  test("modifyQuantity CART_REMOVE ", () => {
+  test("modifyQuantity CART_REMOVE", () => {
     let products_add = products;
     products_add.quantity = 2;
     products_add.note = "";
@@ -101,7 +101,7 @@ describe("Cart actions", () => {
     const actions = store.getActions();
 
     products_add.quantity = 1;
-    const payload = products_add;
+
     const expectedPayload = {
       payload: 1,
       type: "CART_REMOVE",
@@ -124,19 +124,10 @@ describe("Cart actions", () => {
       data: products,
     });
 
-    store.dispatch(actionsCart.saveOrder()).then(() => {
-      let expectedActions = [
-        {
-          type: "GET_ALL_ITEMS",
-          payload: {
-            data: [],
-          },
-        },
-      ];
-    });
+    store.dispatch(actionsCart.saveOrder()).then(() => {});
   });
 
-  test("modifyQuantity CART_MODIFY_NOTE ", () => {
+  test("modifyQuantity CART_MODIFY_NOTE", () => {
     let products_add = products;
     products_add.note = "";
     const INITIAL_STATE = {
@@ -153,16 +144,11 @@ describe("Cart actions", () => {
     const actions = store.getActions();
 
     products_add.note = "Test";
-    const payload = products_add;
-    const expectedPayload = {
-      type: "CART_MODIFY_NOTE",
-      payload,
-    };
 
     expect(actions).toEqual([]);
   });
 
-  test("modifyQuantity CART_REMOVE ", () => {
+  test("should CART_REMOVE", () => {
     let products_add = products;
     products_add.note = "";
     const INITIAL_STATE = {

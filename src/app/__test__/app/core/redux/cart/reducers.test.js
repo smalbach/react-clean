@@ -1,14 +1,6 @@
 import reducer from "../../../../../core/redux/cart/reducers/cartReducer";
+// eslint-disable-next-line jest/no-mocks-import
 import ProductMock from "../../../../../__mocks__/ProductMock";
-import {
-  CART_NEW,
-  CART_ADD,
-  CART_REMOVE,
-  CART_ADD_QUANTITY,
-  CART_ORDER_SAVED,
-  CART_CHECKOUT,
-  CART_CHECKOUT_ERROR,
-} from "../../../../../core/redux/types";
 
 describe("Reducers", () => {
   test("Retutn initial State", () => {
@@ -22,7 +14,7 @@ describe("Reducers", () => {
     const payload = ProductMock;
 
     const action = {
-      type: CART_ADD,
+      type: "CART_ADD",
       payload,
     };
 

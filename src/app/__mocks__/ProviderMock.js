@@ -3,7 +3,7 @@ import { createStore } from "redux";
 import { Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createBrowserHistory } from "history";
-//import initialState from "../initialState";
+
 import reducer from "../../app/core/config/redux/reducers";
 
 const store = createStore(reducer, {});

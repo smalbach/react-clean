@@ -6,11 +6,11 @@ import { create } from "react-test-renderer";
 
 describe("<Error404>", () => {
   const error = mount(<Error404 />);
-  test("Render of footer ", () => {
+  test("Render of footer", () => {
     expect(error.length).toEqual(1);
   });
 
-  test("Error snapshot  ", () => {
+  test("Error snapshot", () => {
     const error = create(<Error404 />);
     expect(error).toMatchSnapshot();
   });
