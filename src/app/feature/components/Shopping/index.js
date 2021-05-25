@@ -11,10 +11,6 @@ import "./style.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Shopping = (props) => {
-  const chekout = false;
-  const order_saved = null;
-  const newOrder = () => {};
-
   return (
     <>
       <Layout>
@@ -26,37 +22,14 @@ const Shopping = (props) => {
             </div>
           </Col>
           <Col sm={6}>
-            {order_saved ? (
+            <div id="cart">
               <>
-                <div role="alert" class="fade alert alert-success show">
-                  Your order has been generated.
-                </div>
-                <Button variant="outline-primary" onClick={newOrder}>
-                  New order
-                </Button>{" "}
-              </>
-            ) : (
-              <div id="cart">
-                {chekout ? (
-                  <>
-                    <Loader
-                      type="Puff"
-                      color="#00BFFF"
-                      height={100}
-                      width={100}
-                      timeout={0} //3 secs
-                    />
-                  </>
-                ) : (
-                  <>
-                    <Cart />
+                <Cart />
 
-                    <Total />
-                    <Checkout />
-                  </>
-                )}
-              </div>
-            )}
+                <Total />
+                <Checkout />
+              </>
+            </div>
           </Col>
         </Row>
       </Layout>
