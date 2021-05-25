@@ -1,6 +1,5 @@
 import React from "react";
-import { mount, shallow } from "enzyme";
-import { create } from "react-test-renderer";
+import { shallow } from "enzyme";
 import Layout from "../../../../shared/Layout/";
 // eslint-disable-next-line jest/no-mocks-import
 import ProviderMock from "../../../../__mocks__/ProviderMock";

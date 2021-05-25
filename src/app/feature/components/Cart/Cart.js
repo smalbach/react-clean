@@ -17,9 +17,6 @@ class Cart extends Component {
       );
     }
 
-    /*  const cart = this.props.carts.map((cart, key) => (
-      <CartDetail key={cart.id} cart={cart} />
-    )); */
     return <CartDetail />;
   };
 

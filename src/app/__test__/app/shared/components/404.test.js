@@ -11,7 +11,7 @@ describe("<Error404>", () => {
   });
 
   test("Error snapshot", () => {
-    const error = create(<Error404 />);
-    expect(error).toMatchSnapshot();
+    const error_snap = create(<Error404 />);
+    expect(error_snap).toMatchSnapshot();
   });
 });

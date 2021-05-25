@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header snapshop  Test UI Component Header 1`] = `[Function]`;
+
+exports[`Header snapshop UI Component Header 1`] = `[Function]`;

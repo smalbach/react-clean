@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Footer> Test UI Component footer 1`] = `[Function]`;
+
+exports[`<Footer> UI  footer 1`] = `[Function]`;

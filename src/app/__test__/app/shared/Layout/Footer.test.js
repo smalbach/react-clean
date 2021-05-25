@@ -13,7 +13,7 @@ describe("<Footer>", () => {
     expect(footer.find(".Footer-title").text()).toEqual("React app");
   });
   test("UI  footer", () => {
-    const footer = create(<Footer />);
-    expect(footer.toJSON).toMatchSnapshot();
+    const footer_snap = create(<Footer />);
+    expect(footer_snap.toJSON).toMatchSnapshot();
   });
 });

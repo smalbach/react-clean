@@ -17,12 +17,12 @@ describe("<Header>", () => {
     expect(header.length).toEqual(1);
   });
   test("Title render", () => {
-    const header = mount(
+    const header_mount = mount(
       <ProviderMock>
         <Header />
       </ProviderMock>
     );
-    expect(header.find(".title").text()).toEqual("Order App");
+    expect(header_mount.find(".title").text()).toEqual("Order App");
   });
 });
 

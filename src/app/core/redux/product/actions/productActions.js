@@ -14,7 +14,6 @@ export const getProducts = () => async (dispatch) => {
       payload: response.data.results,
     });
   } catch (error) {
-    //console.log(error.message);
     dispatch({
       type: PRODUCT_ERROR,
       payload: "Error loading products",

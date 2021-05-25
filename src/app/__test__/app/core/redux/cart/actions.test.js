@@ -123,8 +123,6 @@ describe("Cart actions", () => {
     mock.onPost("/api/order/create").reply(200, {
       data: products,
     });
-
-    store.dispatch(actionsCart.saveOrder()).then(() => {});
   });
 
   test("modifyQuantity CART_MODIFY_NOTE", () => {
