@@ -24,9 +24,9 @@ export const addToCart = (product) => (dispatch, getState) => {
 export const modifyQuantity = (product, operation) => (dispatch, getState) => {
   try {
     const { carts } = getState().cartReducer;
-    let newCart = [...carts];
+    const auxCart = [...carts];
 
-    newCart.find(
+    const newCart = auxCart.find(
       (p) =>
         p.id === product.id &&
         ((p.quantity = p.quantity + parseInt(operation)), true)
@@ -42,8 +42,10 @@ export const modifyQuantity = (product, operation) => (dispatch, getState) => {
 export const modifyNote = (product, note) => (dispatch, getState) => {
   try {
     const { carts } = getState().cartReducer;
-    let newCart = [...carts];
-    newCart.find((p) => p.id === product.id && ((p.note = note), true));
+    let auxCart = [...carts];
+    const newCart = auxCart.find(
+      (p) => p.id === product.id && ((p.note = note), true)
+    );
     dispatch({
       type: CART_MODIFY_NOTE,
       payload: newCart,
