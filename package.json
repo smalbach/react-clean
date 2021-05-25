@@ -27,7 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test -env=jsdom --verbose",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:coverage": "set CI=true && react-scripts test --coverage"
   },
   "eslintConfig": {
     "extends": [
@@ -65,6 +66,13 @@
   "jest": {
     "moduleNameMapper": {
       "^.+\\.(styl|css)$": "<rootDir>/src/app/__mocks__/styleMock.js"
-    }
+    },
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/serviceWorker.js",
+      "!**/index.js"
+    ]
   }
 }
