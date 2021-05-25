@@ -8,7 +8,6 @@ const { modifyQuantity, modifyNote } = cartActions;
 
 class Cart extends Component {
   renderCart = () => {
-    console.log(this.props.carts.length);
     if (this.props.carts.length === 0) {
       return (
         <tr>

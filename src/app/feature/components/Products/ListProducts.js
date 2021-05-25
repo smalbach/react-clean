@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import * as productsActions from "../../../core/redux/product/actions/productActions";
 import Product from "./Product";
 import Spinner from "../../../shared/components/Spiner";
@@ -25,11 +25,7 @@ class ListProducts extends Component {
 
   render() {
     return (
-      <Container>
-        <Container>
-          <Row className="justify-content-md-center">{this.setProducts()}</Row>
-        </Container>
-      </Container>
+      <Row className="justify-content-md-center">{this.setProducts()}</Row>
     );
   }
 }

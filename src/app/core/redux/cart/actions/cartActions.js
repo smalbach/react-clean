@@ -12,12 +12,17 @@ import {
 
 export const addToCart = (product) => (dispatch, getState) => {
   try {
-    product.quantity = 1;
-    product.note = "";
-    dispatch({
-      type: CART_ADD,
-      payload: product,
-    });
+    const { carts } = getState().cartReducer;
+    const exist = carts.filter((cart) => product.id === cart.id);
+
+    if (exist.length === 0) {
+      product.quantity = 1;
+      product.note = "";
+      dispatch({
+        type: CART_ADD,
+        payload: product,
+      });
+    }
   } catch (error) {}
 };
 
@@ -31,7 +36,6 @@ export const modifyQuantity = (product, operation) => (dispatch, getState) => {
         p.id === product.id &&
         ((p.quantity = p.quantity + parseInt(operation)), true)
     );
-
     dispatch({
       type: CART_ADD_QUANTITY,
       payload: newCart,

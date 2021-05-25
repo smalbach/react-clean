@@ -66,11 +66,11 @@ class CartDetail extends Component {
   };
 
   rednderCart = () => {
-    const cart = this.props.carts.map((cart, key) => {
+    const cart = this.props.carts.map((cart) => {
       const { id, image, name, price, quantity } = cart;
       const { discount, total } = this.calclateTotal(cart);
       return (
-        <tr key={id}>
+        <tr key={id} className="cart-detail">
           <td>
             <img src={image} width="30" alt="Product" />
           </td>
@@ -101,17 +101,33 @@ class CartDetail extends Component {
           </td>
 
           <td>
-            <Button variant="" size="sm" onClick={() => this.delQuantity(cart)}>
+            <Button
+              variant=""
+              size="sm"
+              onClick={() => this.delQuantity(cart)}
+              className="decrease-quantity"
+            >
               -
             </Button>
-            {quantity}
-            <Button variant="" size="sm" onClick={() => this.addQuantity(cart)}>
+            <div className="product-quantity">{quantity}</div>
+
+            <Button
+              variant=""
+              size="sm"
+              onClick={() => this.addQuantity(cart)}
+              className="increase-quantity"
+            >
               +
             </Button>
           </td>
 
           <td>
-            <Button variant="" size="sm" onClick={() => this.removeCart(cart)}>
+            <Button
+              variant=""
+              size="sm"
+              onClick={() => this.removeCart(cart)}
+              className="button-remove"
+            >
               Remove
             </Button>
           </td>

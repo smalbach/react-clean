@@ -11,7 +11,6 @@ class Total extends Component {
     var date = new Date();
     var dayOfWeek = date.getDay();
 
-    // eslint-disable-next-line array-callback-return
     this.props.carts.map((cart) => {
       let promption = 0;
       quantity += cart.quantity;

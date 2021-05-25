@@ -52,7 +52,11 @@ class Checkout extends Component {
       return;
     }
 
-    return <Button onClick={this.checkOutOrder}>Checkout</Button>;
+    return (
+      <Button onClick={this.checkOutOrder} className="checkout">
+        Checkout
+      </Button>
+    );
   };
 
   render() {

@@ -13,12 +13,11 @@ class Product extends Component {
 
   renderProduct = () => {
     const products = this.props.productReducer.products.map((product, key) => (
-      <Col md="auto" key={product.id}>
+      <Col md="auto" key={product.id} className="product-cart">
         <div className="box">
           <img src={product.image} height="170" alt="" />
           <i className="button-add" onClick={() => this.addProduct(product)}>
-            {" "}
-            <PlusLg />{" "}
+            <PlusLg />
           </i>
           <h2> {product.name} </h2>
           <p>$ {product.price} </p>
