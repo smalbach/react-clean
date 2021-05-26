@@ -46,10 +46,8 @@ export const modifyQuantity = (product, operation) => (dispatch, getState) => {
 export const modifyNote = (product, note) => (dispatch, getState) => {
   try {
     const { carts } = getState().cartReducer;
-    let auxCart = [...carts];
-    const newCart = auxCart.find(
-      (p) => p.id === product.id && ((p.note = note), true)
-    );
+    let newCart = [...carts];
+    newCart.find((p) => p.id === product.id && ((p.note = note), true));
     dispatch({
       type: CART_MODIFY_NOTE,
       payload: newCart,

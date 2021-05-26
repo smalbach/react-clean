@@ -75,14 +75,7 @@ class CartDetail extends Component {
             <img src={image} width="30" alt="Product" />
           </td>
           <td>{name}</td>
-          <td>
-            <Form.Control
-              size="sm"
-              type="text"
-              placeholder="Note"
-              onChange={(e) => this.updateNote(e, cart)}
-            />
-          </td>
+
           <td>
             <NumberFormat
               value={price}

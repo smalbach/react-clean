@@ -31,8 +31,8 @@ class Cart extends Component {
                 <tr>
                   <th></th>
                   <th>Product</th>
-                  <th></th>
-                  <th>U. price</th>
+
+                  <>U. price</>
                   <th>Discount</th>
                   <th>Quantity</th>
                   <th></th>
