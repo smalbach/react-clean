@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Button, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import NumberFormat from "react-number-format";
 import * as cartActions from "../../../core/redux/cart/actions/cartActions";
 import Swal from "sweetalert2";
